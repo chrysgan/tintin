@@ -1,0 +1,87 @@
+:root {
+	--margin-top : 4px;
+
+	--primaryColor :        #3298bc;
+	--primaryLightColor :   #6dc9ef;
+	--primaryDarkColor :    #006a8c;
+
+	--secondaryColor :      #912740;
+	--secondaryLightColor : #bc3253;
+	--secondaryDarkColor :  #671b2d;
+
+	--thirdColor :          #cccccc;
+	--thirdDarkColor:       #656565;
+	--thirdLightColor:      #ffffff;
+
+	--fourthColor:					#FB8C00;
+
+	--primaryTextColor :    #ffffff;
+	--secondaryTextColor :  #000000;
+	--thirdTextColor :			#4b6b9a;
+
+	--not_owned :						#ff4f30;
+	--inactive : 						#ff3030;
+	--attente :							#ff0082;
+	--pas_range :						#3875b4;
+
+}
+
+.bg-primary { 	background-color: var(--primaryColor); }
+.bg-primary-l { 	background-color: var(--primaryLightColor);}
+.bg-primary-d {	background-color: var(--primaryDarkColor);}
+.bg-secondary {	background-color: var(--secondaryColor)}
+.bg-secondary-l {	background-color: var(--secondaryLightColor)}
+.bg-secondary-d {	background-color: var(--secondaryDarkColor)}
+.bg-third {	background-color: var(--thirdColor)}
+.bg-third-l {	background-color: var(--thirdLightColor) ;box-shadow: 1px 1px 3px 0px var(--thirdDarkColor);}
+.bg-third-d {	background-color: var(--thirdDarkColor)}
+
+.text-secondary {	color: var(--secondaryTextColor)}
+.text-primary {	color: var(--primaryTextColor);}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+
+  /*text-decoration: none;*/
+	color: var(--primaryColor);
+	/*line-height: 20px;*/
+	/*vertical-align: middle;*/
+}
+
+
+/* Rules for sizing the icon. */
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+/* Rules for using icons as black on a light background. */
+.material-icons.md-dark { color: var(--secondaryTextColor);}
+.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+/* Rules for using icons as white on a dark background. */
+.material-icons.md-light { color: var(--primaryTextColor); }
+.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
+
+.material-icons.orange600 { color: var(--fourthColor); }

@@ -1,0 +1,29 @@
+.myThumb{
+    max-height: 250px;
+}
+
+.actual_object {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid var(--secondaryTextColor);
+    border-radius: 5px;
+}
+
+.actual_object  p{
+    text-align: left;
+}
+
+.waiting {
+    position: absolute;
+    top : 150px;
+    background-color: white;
+    padding: 10px;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.waiting img {
+    width :30px;
+}

@@ -1,0 +1,13 @@
+Uploader les fichiers sur le FTP :
+    ☐ Un job de synchro dans FileFreeSync permet de le faire en automatique en ne prenant que les fichiers utiles
+        ☐ Retrait des éléments inutiles
+            ☐ /.Trash-*/
+            ☐ */.recycle/
+            ☐ */.git/
+            ☐ */.well-known/
+            ☐ /welcome.php
+            ☐ .autohidefiles
+            ☐ .gitignore
+            ☐ /tools/
+            ☐ /app/core/variables_local.php
+            ☐ /app/core/variables_work.php

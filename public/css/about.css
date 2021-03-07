@@ -1,0 +1,65 @@
+.about {
+    display: block;
+    background-image: url(/public/images/elements/couv2.jpg);
+    background-repeat: repeat;
+    height: 93.9vh;
+}
+
+.about h1 {
+    font-size:2.5em;
+    margin: 0;
+}
+
+.about-body {
+    display: flex;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+    height: 85%;
+}
+
+.about-bloc {
+    padding: 25px;
+    background-color: white;
+    color: var(--thirdTextColor);
+}
+.about-bloc1 {
+    display: flex;
+    background-color: #4b6b9a; /* ligne */
+    padding: 2px
+}
+.about-bloc2 {
+    display: flex;
+    padding: 15px;
+    background-color: white;
+}
+.about-bloc3 {
+    display: block;
+    background-color: #4b6b9a; /* ligne */
+    padding: 2px
+}
+.about-bloc4 {
+    display: block;
+    padding: 5px;
+    background-color: white; /* ligne */
+}
+
+.about-bloc5 {
+    margin: 10px auto;
+    background-color: #4b6b9a;
+    padding: 2px /* ligne */
+}
+
+
+.about ul li {
+  list-style: square;
+}
+.about li a {
+  text-decoration: none;
+  color: var(--thirdTextColor);
+}
+
+.underlined {
+  color: var(--thirdTextColor);
+  text-decoration: underline;
+}
