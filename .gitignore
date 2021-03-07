@@ -1,0 +1,7 @@
+vendor/
+*.ffs_db
+variables_distant.php
+variables_local.php
+variables_work.php
+*.lock
+sync.ffs_lock
