@@ -82,14 +82,14 @@
 				$img->resize(null, $pers_image_height, function ($constraint) {
 						$constraint->aspectRatio();
 				});
-				$persimg = strtoupper($persalias.'.png');
+				$persimg = strtoupper(str_replace("'","",$persalias).'.png');
 				$img->save(DIR_PERS_IMAGES_ROOT.$persimg);
 		}
 		else if(empty($_FILES['fileImg']['name']) && $errors == 0){
 			foreach ($pers_list as $pers) {
 				// fichier precedent existe => renommage
 				if($pers['persid']==$persid && !empty($pers['persimg'])){
-					$persimg = strtoupper($persalias.'.png');
+					$persimg = strtoupper(str_replace("'","",$persalias).'.png');
 					rename(DIR_PERS_IMAGES_ROOT.$pers['persimg'],DIR_PERS_IMAGES_ROOT.$persimg);
 				}
 			}
@@ -105,6 +105,7 @@
 			$persnom = str_replace("'","''",$persnom);
 			$persprenom = str_replace("'","''",$persprenom);
 			$persdesc = str_replace("'","''",$persdesc);
+
 
 			$query = $pdo->prepare("update personnages set persalias ='$persalias', persprenom='$persprenom', persnom='$persnom' , persimg='$persimg', persdesc = '$persdesc' where persid = $persid;");
 			$query->execute();
