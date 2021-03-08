@@ -5,6 +5,7 @@ variables_local.php
 variables_work.php
 *.lock
 sync.ffs_lock
+composer.lock
 *.PNG
 *.png
 *.JPG
