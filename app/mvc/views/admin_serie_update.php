@@ -31,7 +31,7 @@ ob_start();
 		<label for="sernom">Nom de la série</label>
 		<input type="text" id="sernom" name="sernom" maxlength="50" value="<?php  echo $sernom; ?>">
 		<label for="serannee">Année de parution</label>
-		<input type="number" id="serannee" name="serannee" min="1926" max="<?php echo date('Y'); ?>" value="<?php  echo $serannee; ?>">
+		<input type="number" id="serannee" name="serannee" max="<?php echo date('Y'); ?>" value="<?php  echo $serannee; ?>">
 		<label for="sermois">Mois de parution</label>
 		<input type="number" id="sermois" name="sermois" min="0" max="12" value="<?php  echo $sermois; ?>">
 		<label for="serdesc">Description de la série</label>

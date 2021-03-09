@@ -60,14 +60,22 @@
 		}
 
 		// Controle de l'année de la série
-		if($serannee<1926 || $serannee>intval(date('Y'))){
+		if(
+			($serannee>0 && $serannee<SERIE_YEAR)
+			||		$serannee>intval(date('Y'))
+		){
 			$errors++;
-			message::addMsg("L'année de la série doit être entre 1926 et aujourd'hui.");
+			message::addMsg("L'année de la série doit être entre ".SERIE_YEAR." et aujourd'hui.");
 		}
-		// Controle de du mois de la série
+		// Controle du mois de la série
 		if($sermois<0 || $sermois>12){
 			$errors++;
 			message::addMsg("Le mois de la série doit être compris entre 0 et 12. 0 étant mois non connu");
+		}
+		// Controle pas de mois si pas d'année
+		if($serannee<SERIE_YEAR && $sermois>0){
+			$errors++;
+			message::addMsg("Le mois de la série ne peut exister s'il n'y a pas d'année");
 		}
 		if($errors==0){
 			// sauvegarde des données dans la base

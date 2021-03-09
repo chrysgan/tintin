@@ -56,6 +56,9 @@ define("TEXTAREA_MAX_LENGTH",3000);
 define("OBJECT_RANGEMENT_MAX_SIZE",45);
 // Editeur
 define("EDITOR_MIN_CREATE_YEAR",1800);
+// Serie
+define("SERIE_YEAR",1926);
+
 
 
 //Chargement des variables contextuelles
