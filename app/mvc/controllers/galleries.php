@@ -164,16 +164,16 @@
 		if($parameters[1]=='series'){
 			$area_img =DIR_EDITORS_IMAGES.$value['ediimg'];
 			$area_1 = $value['edidesc'];
-			$area_2 = $value['serdesc'];
+			$area_2 = str_replace(array("\r\n","\n"),'<br />',$value['serdesc']);
 		}
 		if($parameters[1]=='editeurs'){
 			$area_img =DIR_EDITORS_IMAGES.$value['ediimg'];
-			$area_1 = $value['edidesc'];
+			$area_1 = str_replace(array("\r\n","\n"),'<br />',$value['edidesc']);
 		}
 		if($parameters[1]=='personnages'){
 			$area_img =DIR_PERS_IMAGES.$value['persimg'];
 			$area_1 = $value['persalias'];
-			$area_2 = $value['persdesc'];
+			$area_2 = str_replace(array("\r\n","\n"),'<br />',$value['persdesc']);
 		}
 
 		$url2= "<a class=\"myNavLink\" href=\"".WEBROOT.$page_galleries."/".$parameters[1]."\">". ucfirst($parameters[1])." </a>";
