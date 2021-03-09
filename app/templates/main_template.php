@@ -72,6 +72,7 @@ use App\Message;
                         }
                         if (fadeTarget.style.opacity > 0) {
                             hauteur = Math.round(fadeTarget.offsetHeight - diviseur );
+                            if(hauteur<0){hauteur = 0;}
                             fadeTarget.style.height = hauteur+"px";
                             fadeTarget.style.opacity -= 0.1;
                         } else {
