@@ -6,7 +6,7 @@ if($objet['serid']==null){
     $urlending="/".$objet['typecode']."/".$objet['ediid'];
 }
 else{
-    $urlending = "/S/".$objet['ediid']."/".$objet['serid'];
+    $urlending = "/series/".$objet['serid'];
 }
 $url =WEBROOT.$page_galleries.$urlending;
 $libelle_objet=$objet['objnom'];
