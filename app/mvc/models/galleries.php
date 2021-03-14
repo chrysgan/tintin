@@ -10,6 +10,7 @@
 		from objets o1
 		inner join series s on o1.serid =s.serid
 		inner join editeurs e on o1.ediid = e.ediid
+		where o1.objactif = 1
 		order by 1,3
 	");
 	$query->execute();
