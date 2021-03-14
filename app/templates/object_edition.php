@@ -176,7 +176,7 @@
                 <label for="fileImg">Ajout d'images</label>
                 <input type="file" id="fileImg" name="fileImg[]"  multiple accept=".png, .jpg, .jpeg, .gif">
                 <div id="preview"></div>
-                <button type="button" name="action" value="add_images">Ajouter image(s)</button>
+                <button type="submit" name="action" value="add_images">Ajouter image(s)</button>
 
                 <!-- <?php if(isset($objimages)){ ?> -->
                 <label for="tableUpdateObjectImage">Images existantes</label>
