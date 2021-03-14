@@ -38,6 +38,7 @@
 		select distinct t.typelib,t.typeid,t.typeimg,t.typecode
 		from objets o1
 		inner join types t on o1.typeid = t.typeid
+		where o1.objactif=1
 		order by 4
 	");
 	$query->execute();

@@ -118,7 +118,7 @@
 		if($parameters[1]=='series'){$where = "and obj.serid = ".intval($parameters[2]);}
 		if($parameters[1]=='editeurs'){$where = "and obj.ediid = ".intval($parameters[2]);}
 		if($parameters[1]=='personnages'){$where = "and p.persid = ".intval($parameters[2]);$left="left join personnages p on p.persid = op.persid";$select = ", p.persalias,p.persimg,p.persdesc";}
-		if($parameters[1]=='types'){$where = "and obj.typeid = ".intval($parameters[2]);}
+		if($parameters[1]=='types'){$where = "and obj.typeid = ".intval($parameters[2]);$left="left join types t on t.typeid = obj.typeid";$select = ", t.typelib";}
 		/* requete sql */
 		$query = $pdo->prepare("
 				SELECT distinct ser.*, obj.*, img.imgfile, oi2.nbimg, edi.edidesc, edi.ediimg, oi3.new, oi4.note_moyenne, edi.edinom {$select}
@@ -165,15 +165,21 @@
 			$area_img =DIR_EDITORS_IMAGES.$value['ediimg'];
 			$area_1 = $value['edidesc'];
 			$area_2 = str_replace(array("\r\n","\n"),'<br />',$value['serdesc']);
+			$url3= "<a class=\"myNavLink\" href=\"#\">". $value['sernom']." </a>";
 		}
 		if($parameters[1]=='editeurs'){
 			$area_img =DIR_EDITORS_IMAGES.$value['ediimg'];
 			$area_1 = str_replace(array("\r\n","\n"),'<br />',$value['edidesc']);
+			$url3= "<a class=\"myNavLink\" href=\"#\">". $value['edinom']." </a>";
 		}
 		if($parameters[1]=='personnages'){
 			$area_img =DIR_PERS_IMAGES.$value['persimg'];
 			$area_1 = $value['persalias'];
 			$area_2 = str_replace(array("\r\n","\n"),'<br />',$value['persdesc']);
+			$url3= "<a class=\"myNavLink\" href=\"#\">". $value['persalias']." </a>";
+		}
+		if($parameters[1]=='types'){
+			$url3= "<a class=\"myNavLink\" href=\"#\">". $value['typelib']." </a>";
 		}
 
 		$url2= "<a class=\"myNavLink\" href=\"".WEBROOT.$page_galleries."/".$parameters[1]."\">". ucfirst($parameters[1])." </a>";

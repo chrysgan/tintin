@@ -1,9 +1,6 @@
 <?php
-// TODO : image pour characters 200/200 bordure 7px, bandeau bas 124->200
-
-
-//TODO: mettre des meta mots dans les pages
-//TODO: sur création série l'année ne devrait pas être obligatoire
-//TODO : resoudre le pb de barre blanche entre le libelle de la page et la navbar quand il y a eu un message orange transmis
-//TODO : voir pour le pb ci-dessus si le message peut-etre passé en overlay
-//TODO: gérer le troisieme niveau de la gallerie pour le type d'objet
+// TODO: mettre des meta mots dans les pages
+// TODO: pb sur le controle objet année de parution quand c'est 0
+// TODO: voir pour ajouter à l'image la description de l'objet, car quand on interroge par type par exemple on aimerait connaitre l'editeur la serie le personnage..
+// TODO: idem ci-dessous voir pour que le popup i ne soit pas que le champ description
+// TODO: le lien vers la dernière figurine modifié ne fonctionne pas
