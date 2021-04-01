@@ -21,7 +21,7 @@ if(!empty($_POST)){
 
     // envoi du mail
     $myMail = new MyMail();
-    $myMail->setfrom($mailFrom,'Las Figurinas de Tintin');
+    $myMail->setfrom($mailFrom,'Les Figurines de Tintin');
     $myMail->addaddress($mailContact);
     $myMail->subject("Modification d'objet {$objid} par {$_SESSION['auth']['login']} ({$_SESSION['auth']['mbid']}) : {$edinom} - {$sernom} - {$objnom} ");
     $myMail->body($message);

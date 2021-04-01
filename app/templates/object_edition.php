@@ -187,9 +187,9 @@
                         if($img['objid']==$objid){
                             echo "<tr>";
                             echo "<td><img class=\"imgPreview\" src=\"".DIR_OBJECTS_IMAGES.$img['imgfile']."\" alt=\"\"></td>";
-                            echo "<td><button type=\"button\" name=\"delete_image\" value=\"".$img['imgid']."\">Supprimer</button></td>";
-                            echo "<td><button type=\"button\" name=\"move_up_image\" value=\"".$img['imgid']."\">Up</button>";
-                            echo "<button type=\"button\" name=\"move_down_image\" value=\"".$img['imgid']."\">Down</button></td>";
+                            echo "<td><button type=\"submit\" name=\"delete_image\" value=\"".$img['imgid']."\">Supprimer</button></td>";
+                            echo "<td><button type=\"submit\" name=\"move_up_image\" value=\"".$img['imgid']."\">Up</button>";
+                            echo "<button type=\"submit\" name=\"move_down_image\" value=\"".$img['imgid']."\">Down</button></td>";
                             echo"</tr>";
                         }
                     }

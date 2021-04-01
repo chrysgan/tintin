@@ -25,10 +25,13 @@
 		if($parameters[1]=='series'){
 			$requete = array();
 			foreach ($serie_list as $serie) {
+				if(!empty($serie['ediimg'])){
+					$tmp_img = "<img class=\"gallery-item-image\" src=\"".DIR_EDITORS_IMAGES.$serie['ediimg']."\" alt=\"".DIR_EDITORS_IMAGES.$serie['ediimg']."\">";
+				} else {$tmp_img = null;}
 				$value = "<a	class=\"gallery-item\"
 								href=\"".WEBROOT.$controller."/series/".$serie['serid']."\"
 							>
-							<img class=\"gallery-item-image\" src=\"".DIR_EDITORS_IMAGES.$serie['ediimg']."\" alt=\"".DIR_EDITORS_IMAGES.$serie['ediimg']."\">
+							".$tmp_img."
 							".$serie['sernom']."
 						</a>";
 				array_push($requete,$value);
@@ -114,11 +117,27 @@
 		&& isset($parameters[2])
 	){
 		/* gestion des where possibles */
-		$left=null;$select=null;
-		if($parameters[1]=='series'){$where = "and obj.serid = ".intval($parameters[2]);}
-		if($parameters[1]=='editeurs'){$where = "and obj.ediid = ".intval($parameters[2]);}
-		if($parameters[1]=='personnages'){$where = "and p.persid = ".intval($parameters[2]);$left="left join personnages p on p.persid = op.persid";$select = ", p.persalias,p.persimg,p.persdesc";}
-		if($parameters[1]=='types'){$where = "and obj.typeid = ".intval($parameters[2]);$left="left join types t on t.typeid = obj.typeid";$select = ", t.typelib";}
+		$left=null;$select=null;$order=null;
+		if($parameters[1]=='series'){
+			$where = "and obj.serid = ".intval($parameters[2]);
+			$order = "order by obj.objnom";
+		}
+		if($parameters[1]=='editeurs'){
+			$where = "and obj.ediid = ".intval($parameters[2]);
+			$order = "order by obj.objnom";
+		}
+		if($parameters[1]=='personnages'){
+			$where = "and p.persid = ".intval($parameters[2]);
+			$left="left join personnages p on p.persid = op.persid";
+			$select = ", p.persalias,p.persimg,p.persdesc";
+			$order = "order by edi.edinom,ser.sernom";
+		}
+		if($parameters[1]=='types'){
+			$where = "and obj.typeid = ".intval($parameters[2]);
+			$left="left join types t on t.typeid = obj.typeid";
+			$select = ", t.typelib";
+			$order = "order by obj.objnom";
+		}
 		/* requete sql */
 		$query = $pdo->prepare("
 				SELECT distinct ser.*, obj.*, img.imgfile, oi2.nbimg, edi.edidesc, edi.ediimg, oi3.new, oi4.note_moyenne, edi.edinom {$select}
@@ -148,7 +167,7 @@
 				{$where}
 				and (imgorder = 1 or imgorder is null)
 				and obj.objactif = 1
-				order by obj.objnom"
+				{$order}"
 		);
 		$query->execute();
 		$response = $query->fetchAll(PDO::FETCH_ASSOC);

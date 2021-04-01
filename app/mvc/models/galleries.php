@@ -25,6 +25,7 @@
 		select distinct e.ediid, e.edinom, e.ediimg
 		from objets o1
 		inner join editeurs e on o1.ediid = e.ediid
+		where o1.objactif=1
 		order by 2
 	");
 	$query->execute();
