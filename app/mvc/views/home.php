@@ -16,7 +16,7 @@ ob_start();
                                 <p>Dans la jungle des objets dérivés Tintin, il est difficile de s'y retrouver.</p>
                                 <p>Qui a fait quoi ? quand ? Combien existe-t-il de figurines dans cette  série ?</p>
                                 <p >Voilà les questions que je me posais quand j'ai commencé à collectionner les objets de Tintin.
-                                <p >Ici je fais l'inventaire des figurines de petites tailles en plastique ou résine.</p>
+                                <p >Ici je fais l'inventaire des figurines de petites tailles en plastique ou résine et de  quelques autres objets.</p>
                                 <p >Mon idée est de fournir une synthèse des informations que j'ai collectées ici et là, avec de belles photographies.</p>
                                 <p >J'espère que le but sera atteint.</p>
                                 <a class="flex-center link_button" href="<?php echo WEBROOT.$page_galleries; ?>">Début de la visite</a>

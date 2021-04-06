@@ -26,12 +26,13 @@ ob_start();
 		</div>
 	</div>
 	<?php } ?>
-	<!-- fin d entete -->
+	<!-- gallerie des cards -->
 	<div class="myRow flex-center">
 		<div class="gallery-group">
 			<?php  foreach ($requete as $value) { echo $value;	};	?>
 		</div>
 	</div>
+	<!-- zone d'insertion de la modal des informations de l'objet -->
 	<div id="ModalObjectInformation" class="ModalObjectInformation">
 		<div class="modal-content">
 			<span class="modal_close_object_information">&times;</span>
