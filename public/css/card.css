@@ -1,3 +1,12 @@
+:root{
+	--card-width:270px;
+	--car-height:437px;
+	--card-body-heigth:147px;
+	--card-top-heigth:290px;
+	--tooltip-bgc:rgb(105,105,105);
+
+}
+
 .obj-item {
 	display: flex;
 	flex-direction: column;
@@ -8,9 +17,8 @@
 	font-family:"Roboto";
 	transition: all .1s ease-in-out;
 	border: solid 1px var(--thirdDarkColor);;
-	/* box-shadow: 1px 1px 2px 0px var(--thirdDarkColor); */
-	width: 270px;
-	height: 437px;
+	width: var(--card-width);
+	height: var(--card-heigth);
 	font-size: 1.3em;
 	font-weight: bold;
 	color: var(--secondaryTextColor);
@@ -22,9 +30,7 @@
 
 .topcard {
 	display: flex;
-	height: 290px;
-	/* text-align: center; */
-	/* line-height: 290px; */
+	height: var(--card-top-heigth);
 	justify-content: center;
 	align-items: center;
 }
@@ -54,6 +60,7 @@
 .info-obj i{
 	float: right;
 	color: var(--fourthColor);
+	z-index: 0;
 }
 .info-obj>span>i {
 	transform: scale(1);
@@ -106,45 +113,6 @@
 	top:10px;
 	z-index: 8;
 }
-.ban_star{
-	position: absolute;
-	right:-10px;
-	top:-5px;
-	z-index: 8;
-	height: 54px;
-}
-.ban_star_nb{
-	position: absolute;
-	display: block;
-	right:5px;
-	top:2px;
-	z-index: 8;
-	text-decoration: none;
-	color: var(--primaryDarkColor);
-	font-size :0.65em;
-	text-align: center;
-	width:23px;
-}
-
-
-.stars {
-	display: block;
-	width:20px;
-	height: 20px;
-	float: left;
-	margin: 1px;
-	background-size:contain;
-	background-repeat: no-repeat;
-	background-image: url(../images/elements/STAR.PNG);
-}
-
-.checked {
-	background-image: url(../images/elements/STAR-CHECKED.PNG);
-}
-
-.rated {
-	background-image: url(../images/elements/STAR-CHECKED.PNG);
-}
 
 button.info-obj {
 	float: right;
@@ -155,4 +123,25 @@ button.info-obj {
 
 span.span-right {
 	float: right;
+}
+
+.obj-description {
+	display: none;
+	opacity: 0;
+}
+
+.topcard > a:hover + span {
+	position: absolute;
+	display: block;
+	width: 260px;
+	height: 132px;
+	margin: 10px;
+	margin-bottom: -417px;
+	opacity: 0.8;
+	background-color: var(--tooltip-bgc);
+	color: var(--primaryTextColor);
+	padding: 5px;
+	font-size: 0.7em;
+	font-family: "Raleway";
+	z-index: 10;
 }

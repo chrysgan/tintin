@@ -136,8 +136,6 @@ ob_start();
     <div class="topcard">
         <a class="<?php echo $badge; ?>" data-badge="<?php echo $nbimg; ?>" href="<?php echo $objimg; ?>">
             <img class="myImg" src="<?php echo $objimg; ?>" alt="<?php echo $edinom.'-'.$sernom.'-'.$objnom; ?>">
-            <img class="ban_star" src="/public/images/elements/BIG-STAR.PNG" <?php echo $hideimg; ?>>
-            <p class="ban_star_nb" <?php echo $hidespan; ?>><?php echo $note_gen; ?></p>
             <?php if($new=='1') { ?>
                 <img class="ban_nouveau" src="/public/images/elements/banniere.png" alt="new_image">
             <?php } ?>
@@ -165,24 +163,9 @@ ob_start();
             <span class="span-right">Parution : <?php echo $objmois.$objannee; ?></span>
             <hr>
         <p>
-            <?php if (Auth::getStatus()== 3) {
-
-                for ($i=1; $i <= 5 ; $i++) {
-                    if(intval($i)<=intval($note)){
-                        echo "<a class=\"stars rated \" href=\"\" data-star=\"{$i}\"></a>";
-                    }
-                    else {
-                        echo "<a class=\"stars\" href=\"\" data-star=\"{$i}\"></a>";
-                    }
-                }
-            }
-            ?>
             <?php if (Auth::getStatus()== 3) { ?>
                 <a title="Ajouter des informations à cet objet" class="info-obj" href="<?php echo WEBROOT.'add_information/'.$objid; ?>"><span><i class="material-icons">add_circle</i></span></a>
             <?php  }?>
-            <?php if(!empty($objdesc)){ ?>
-                <a title="Voir les informations complémentaires" class="info-obj display-info" href=""><span><i class="material-icons">info</i></span></a>
-            <?php } ?>
             <?php if(!empty($serie_link) && isset($parameters[1]) && $parameters[1]<>'S'){ ?>
                 <a title="Voir la série complète" class="info-obj" href="<?php echo $serie_link; ?>"><span><i class="material-icons">unarchive</i></span></a>
             <?php } ?>

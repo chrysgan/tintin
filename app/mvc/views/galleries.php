@@ -2,7 +2,7 @@
 
 $css_loading = "
 <link href=\"".DIR_CSS.$controller.".css\" rel=\"stylesheet\">
-<link href=\"".DIR_CSS."object.css\" rel=\"stylesheet\">
+<link href=\"".DIR_CSS."card.css\" rel=\"stylesheet\">
 <link href=\"".DIR_CSS."lightbox.css\" rel=\"stylesheet\">
 ";
 
@@ -42,7 +42,6 @@ ob_start();
 </div>
 <script src="<?php echo DIR_JS; ?>lightbox.js" type="module" defer></script>
 <script src="<?php echo DIR_JS; ?>object_information.js" type="module" defer></script>
-<script src="<?php echo DIR_JS; ?>stars.js" type="module" defer></script>
 <?php
 $content = ob_get_clean();
 
