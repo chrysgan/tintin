@@ -10,7 +10,7 @@ else {
     $objimg = DIR_OBJECTS_IMAGES.$value['imgfile'];
 }
 $nbimg = intval($value['nbimg']);
-if($nbimg>1){$badge = 'badge';}else $badge ='no-badge';
+if($nbimg>1){$badge = 'badge';}else $badge ="";
 
 
 if(mb_strlen($value['objnom'])>34){
@@ -47,17 +47,19 @@ else if($value['objprix']==-2){
 else {
     $objprix = $value['objprix']." €";
 }
-$objdesc = $value['objdesc'];
+if(!empty($value['objdesc'])){
+    $objdesc = "<span class=\"obj-description\">".str_replace(chr(10),"<br>",$value['objdesc'])."</span>";
+}
+else{
+    $objdesc="";
+}
+
+
+
+
+/* banniere nouveau*/
 $new = $value['new'];
-$note_gen = round($value['note_moyenne'],1);
-if($note_gen>0) {
-    $hideimg = "";
-    $hidespan="style=\"display:block;\"";
-}
-else {
-    $hideimg ="hidden";
-    $hidespan="style=\"display:none;\"";
-}
+
 if(intval($value['objpoids']>0)){
     $objpoids = $value['objpoids'].' grs';
 }
@@ -132,15 +134,27 @@ $sernom = $value['sernom'];
 $edinom = $value['edinom'];
 ob_start();
 ?>
-<div class="obj-item" id="<?php echo $objid; ?>">
+<div class="card" id="<?php echo $objid; ?>">
+
+
     <div class="topcard">
-        <a class="<?php echo $badge; ?>" data-badge="<?php echo $nbimg; ?>" href="<?php echo $objimg; ?>">
-            <img class="myImg" src="<?php echo $objimg; ?>" alt="<?php echo $edinom.'-'.$sernom.'-'.$objnom; ?>">
-            <?php if($new=='1') { ?>
-                <img class="ban_nouveau" src="/public/images/elements/banniere.png" alt="new_image">
+        <?php if($new=='1') { ?>
+            <img class="ban_nouveau" src="/public/images/elements/banniere.png" alt="new_image">
+        <?php } ?>
+        <a class="img-container" data-badge="<?php echo $nbimg; ?>" href="<?php echo $objimg; ?>">
+            <?php if($objdesc!="") { ?>
+                <i class="material-icons-two-tone badge-description">info</i>
+            <?php } ?>
+                <img class="myImg" src="<?php echo $objimg; ?>" alt="<?php echo $edinom.'-'.$sernom.'-'.$objnom; ?>">
+            <?php if($nbimg>1) { ?>
+                <span class="badge-number"><?php echo $nbimg; ?></span>
             <?php } ?>
         </a>
+        <?php echo $objdesc ?>
     </div>
+
+
+
     <div class="bodycard">
         <hr>
         <h2 title ="<?php echo $objtitle; ?>">
@@ -157,24 +171,32 @@ ob_start();
                  <span class="span-right"><?php echo $objrangement.'-'.$objpossede; ?></span>
             <?php } ?>
         </p>
-
         <p>
             <span>Ref : <?php echo $objref; ?></span>
             <span class="span-right">Parution : <?php echo $objmois.$objannee; ?></span>
-            <hr>
-        <p>
-            <?php if (Auth::getStatus()== 3) { ?>
-                <a title="Ajouter des informations à cet objet" class="info-obj" href="<?php echo WEBROOT.'add_information/'.$objid; ?>"><span><i class="material-icons">add_circle</i></span></a>
-            <?php  }?>
-            <?php if(!empty($serie_link) && isset($parameters[1]) && $parameters[1]<>'S'){ ?>
-                <a title="Voir la série complète" class="info-obj" href="<?php echo $serie_link; ?>"><span><i class="material-icons">unarchive</i></span></a>
-            <?php } ?>
-            <?php if (Auth::getStatus()== 3 && $_SESSION['auth']['type']==sha1('ADMIN')) { ?>
-
-                    <a title="Editer l'objet" class="info-obj" href="<?php echo WEBROOT.'admin/object_update/'.$objid; ?>"><span><i class="material-icons">pending</i></span></button></a>
-
-            <?php  }?>
         </p>
+        <hr>
+        <div class="bandeau-bas">
+            <div class="myCol-70">
+                <div class="myRow   ">
+
+                    <span title="nom de la série" class="bandeau-bas-texte"><?php echo $sernom; ?></span>
+                </div>
+            </div>
+            <div class="myCol-30">
+                <div class="myRow">
+                    <?php if (Auth::getStatus()== 3 && $_SESSION['auth']['type']==sha1('ADMIN')) { ?>
+                        <a title="Editer l'objet" class="info-obj" href="<?php echo WEBROOT.'admin/object_update/'.$objid; ?>"><span><i class="material-icons">pending</i></span></button></a>
+                    <?php  }?>
+                    <?php if (Auth::getStatus()== 3) { ?>
+                        <a title="Ajouter des informations à cet objet" class="info-obj" href="<?php echo WEBROOT.'add_information/'.$objid; ?>"><span><i class="material-icons">add_circle</i></span></a>
+                        <?php if(!empty($serie_link) && isset($parameters[1]) && $parameters[1]<>'series'){ ?>
+                            <a title="Voir la série complète" class="info-obj" href="<?php echo $serie_link; ?>"><span><i class="material-icons">collections</i></span></a>
+                        <?php } ?>
+                    <?php  }?>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 

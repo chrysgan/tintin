@@ -1,39 +1,122 @@
 :root{
 	--card-width:270px;
 	--car-height:437px;
-	--card-body-heigth:147px;
 	--card-top-heigth:290px;
+	--card-body-heigth:140px;
 	--tooltip-bgc:rgb(105,105,105);
 
 }
 
-.obj-item {
+.card {
 	display: flex;
+	position: relative;
 	flex-direction: column;
-	padding: 0px;
+	/* padding: 0px; */
 	margin : 3px;
-	text-decoration: none;
 	background-color: var(--primaryTextColor);
 	font-family:"Roboto";
 	transition: all .1s ease-in-out;
 	border: solid 1px var(--thirdDarkColor);;
 	width: var(--card-width);
-	height: var(--card-heigth);
+	height: var(--car-height);
 	font-size: 1.3em;
-	font-weight: bold;
+	/* font-weight: bold; */
 	color: var(--secondaryTextColor);
-}
-
-.obj-item:hover {
-	/* transform: scale(1.005); */
 }
 
 .topcard {
 	display: flex;
 	height: var(--card-top-heigth);
-	justify-content: center;
-	align-items: center;
+	justify-content: center; /*centrage horizontal*/
+	align-items: center; /* centrage vertical */
 }
+
+.img-container{
+	display: flex;
+	position: relative;;
+	flex-direction: row;
+	justify-content: center;
+	align-items: flex-end;
+	text-decoration: none;
+}
+.badge-description {
+	/* positionnement du badge */
+	position: absolute;
+	left:5px;
+	bottom: 5px;
+	/* mise en forme du badge */
+	font-size:.7em;
+	/* background:var(--secondaryLightColor); */
+	/* color:var(--primaryTextColor); */
+	/* width:20px;height:20px; */
+	/* line-height:20px; */
+	/* text-align:center; */
+	/* border-radius:50%; */
+	/* box-shadow:0 0 1px #333; */
+}
+
+.badge-number {
+	/* positionnement du badge */
+	position:absolute;
+	right :5px;
+	bottom:5px;
+	/* données du badge */
+	content:attr(data-badge);
+	/* mise en forme badge */
+	font-size:.7em;
+	background:var(--secondaryLightColor);
+	color:var(--primaryTextColor);
+	width:20px;height:20px;
+	line-height:20px;
+	text-align:center;
+	border-radius:50%;
+	box-shadow:0 0 1px #333;
+}
+
+
+
+
+.img-container:hover + span {
+	position: absolute;
+	display: block;
+	width: 260px;
+	height: var(--card-body-heigth);
+	margin: 10px;
+	margin-bottom: -423px;
+	opacity: .96;
+	background-color: var(--tooltip-bgc);
+	color: var(--primaryTextColor);
+	padding: 5px;
+	font-size: 0.6em;
+	font-family: "Raleway";
+	z-index: 10;
+}
+
+.myImg {
+	width: auto;
+	max-width: 260px;
+	height: auto;
+	max-height: 270px;
+	vertical-align: middle;
+	border-radius: 4px;
+	/* box-shadow: 1px 1px 1px 0px var(--thirdColor); */
+}
+
+.ban_nouveau {
+	/* positionnement du badge */
+	position:absolute;
+	z-index: 8;
+	top:0;
+	left:0;
+	opacity: 0.7;
+}
+
+.obj-description {
+	display: none;
+	opacity: 0;
+}
+
+
 
 .bodycard > hr {
 	margin: 5px;
@@ -71,48 +154,6 @@
 	transform:scale(1.3);
 }
 
-.myImg {
-	width: auto;
-	max-width: 260px;
-	height: auto;
-	max-height: 270px;
-	vertical-align: middle;
-	border-radius: 4px;
-	/* box-shadow: 1px 1px 1px 0px var(--thirdColor); */
-}
-
-.badge {
-   position:relative;
-}
-
-.no-badge {
-   position:relative;
-}
-
-.badge[data-badge]:after {
-	/* positionnement du badge */
-	position:absolute;
-	right :5px;
-	bottom:5px;
-	/* données du badge */
-	content:attr(data-badge);
-	/* mise en forme badge */
-	font-size:.7em;
-	background:var(--secondaryLightColor);
-	color:var(--primaryTextColor);
-	width:20px;height:20px;
-	line-height:20px;
-	text-align:center;
-	border-radius:50%;
-	box-shadow:0 0 1px #333;
-}
-
-.ban_nouveau{
-	position: absolute;
-	left:0px;
-	top:10px;
-	z-index: 8;
-}
 
 button.info-obj {
 	float: right;
@@ -125,23 +166,15 @@ span.span-right {
 	float: right;
 }
 
-.obj-description {
-	display: none;
-	opacity: 0;
+.bandeau-bas {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
 }
 
-.topcard > a:hover + span {
-	position: absolute;
-	display: block;
-	width: 260px;
-	height: 132px;
-	margin: 10px;
-	margin-bottom: -417px;
-	opacity: 0.8;
-	background-color: var(--tooltip-bgc);
-	color: var(--primaryTextColor);
-	padding: 5px;
+.bandeau-bas-texte {
+	margin-left: 5px;
+	font-family: "Roboto";
+	font-weight: normal;
 	font-size: 0.7em;
-	font-family: "Raleway";
-	z-index: 10;
 }

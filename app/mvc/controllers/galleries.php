@@ -140,7 +140,7 @@
 		}
 		/* requete sql */
 		$query = $pdo->prepare("
-				SELECT distinct ser.*, obj.*, img.imgfile, oi2.nbimg, edi.edidesc, edi.ediimg, oi3.new, oi4.note_moyenne, edi.edinom {$select}
+				SELECT distinct ser.*, obj.*, img.imgfile, oi2.nbimg, edi.edidesc, edi.ediimg, oi3.new, edi.edinom {$select}
 				FROM objets obj
 				left join series ser on ser.serid = obj.serid
 				inner join editeurs edi on edi.ediid = obj.ediid
@@ -156,11 +156,6 @@
 					order by objdatecreation desc
 					limit 10
 					) oi3 on oi3.objid = obj.objid
-				left join (
-					select com.objid , avg(com.comnote) note_moyenne
-					from commentaires com
-					group by objid
-					) oi4 on oi4.objid = obj.objid
 				left join  objets_persos  op on obj.objid = op.objid
 				{$left}
 				where 1=1

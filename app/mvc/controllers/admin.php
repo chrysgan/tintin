@@ -5,7 +5,7 @@ $actions = [
 	'perso_add','perso_update','perso_delete',
 	'serie_add','serie_update','serie_delete',
 	'type_add','type_update','type_delete',
-	'list_members','list_owned','list_missing'
+	'list_members','list_object_without_images'
 ];
 
 // CONTROLE QUE LE USER EST BIEN ADMIN

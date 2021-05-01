@@ -46,11 +46,7 @@ ob_start();
 			</tr>
 			<tr>
 				<td>Liste</td>
-				<td colspan="3"><a href="<?php echo WEBROOT.$controller.'/list_owned'; ?>">Objets possédés</a></td>
-			</tr>
-			<tr>
-				<td>Liste</td>
-				<td colspan="3"><a href="<?php echo WEBROOT.$controller.'/list_missing'; ?>">Objets manquants</a></td>
+				<td colspan="3"><a href="<?php echo WEBROOT.$controller.'/list_object_without_images'; ?>">Objets sans images</a></td>
 			</tr>
 			<tr>
 				<td>Systeme</td>
