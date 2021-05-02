@@ -178,22 +178,22 @@ ob_start();
         <hr>
         <div class="bandeau-bas">
             <div class="myCol-70">
-                <div class="myRow   ">
+                <div class="myRow">
 
                     <span title="nom de la série" class="bandeau-bas-texte"><?php echo $sernom; ?></span>
                 </div>
             </div>
             <div class="myCol-30">
-                <div class="myRow">
+                <div class="myRow bandeau-bas-icons">
                     <?php if (Auth::getStatus()== 3 && $_SESSION['auth']['type']==sha1('ADMIN')) { ?>
                         <a title="Editer l'objet" class="info-obj" href="<?php echo WEBROOT.'admin/object_update/'.$objid; ?>"><span><i class="material-icons">pending</i></span></button></a>
                     <?php  }?>
                     <?php if (Auth::getStatus()== 3) { ?>
                         <a title="Ajouter des informations à cet objet" class="info-obj" href="<?php echo WEBROOT.'add_information/'.$objid; ?>"><span><i class="material-icons">add_circle</i></span></a>
-                        <?php if(!empty($serie_link) && isset($parameters[1]) && $parameters[1]<>'series'){ ?>
-                            <a title="Voir la série complète" class="info-obj" href="<?php echo $serie_link; ?>"><span><i class="material-icons">collections</i></span></a>
-                        <?php } ?>
                     <?php  }?>
+                    <?php if(!empty($serie_link) && isset($parameters[1]) && $parameters[1]<>'series'){ ?>
+                        <a title="Voir la série complète" class="info-obj" href="<?php echo $serie_link; ?>"><span><i class="material-icons">collections</i></span></a>
+                    <?php } ?>
                 </div>
             </div>
         </div>
