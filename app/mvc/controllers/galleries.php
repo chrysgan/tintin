@@ -168,9 +168,6 @@
 		$response = $query->fetchAll(PDO::FETCH_ASSOC);
 		$requete=[];
 		foreach($response as $value){
-			if($parameters[1]=='personnages'){
-				$value['objnom']=$value['sernom']??$value['edinom'];
-			}
 			require DIR_TEMPLATES.'card.php';
 			array_push($requete, $var);
 		}
