@@ -4,19 +4,17 @@ use App\Message;
  ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
     	<title><?php echo $website_title.$title_addin; ?> </title>
     	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="<?=$metadescription ?>">
         <link href="https://fonts.googleapis.com/css?family=Roboto&400display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Sigmar+One&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"> -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Two+Tone" rel="stylesheet">
-        <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"> -->
-        <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet"> -->
         <link href="<?php echo DIR_CSS; ?>colors.css" rel="stylesheet">
         <link href="<?php echo DIR_CSS; ?>main.css" rel="stylesheet">
         <link href="<?php echo DIR_CSS; ?>forms.css" rel="stylesheet">

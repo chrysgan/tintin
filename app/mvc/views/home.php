@@ -20,7 +20,7 @@ ob_start();
                                 <p >Mon idée est de fournir une synthèse des informations que j'ai collectées ici et là, avec de belles photographies.</p>
                                 <p >J'espère que le but sera atteint.</p>
                                 <a class="flex-center link_button" href="<?php echo WEBROOT.$page_galleries; ?>">Début de la visite</a>
-                                <p class="flex-center">dernier objet créé ou modifié&nbsp:&nbsp
+                                <p class="flex-center">dernier objet créé ou modifié le <?php echo date_format(new DateTime($dateCRUD),'d M Y');?>&nbsp:&nbsp
                                     <a class="strong_link" href="<?=$url?>"> <?=$libelle_objet?></a>
                                 </p>
                             </div>

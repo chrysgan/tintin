@@ -2,7 +2,8 @@
 
 // chargement des données du dernier objet créé ou mis à jour
 $query = $pdo->prepare("
-select o.objnom, o.objid , o.ediid, o.serid, e.edinom, t.typecode
+select o.objnom, o.objid , o.ediid, o.serid, e.edinom, t.typecode, 
+    date(case when o.objdatecreation>coalesce(objdateupdate,date_add(current_timestamp(), interval -50000 day )) then o.objdatecreation else o.objdateupdate end) dateCRUD
 from objets o
 inner join editeurs e on e.ediid = o.ediid
 inner join types t on o.typeid = t.typeid

@@ -9,6 +9,7 @@
 	if(	!isset($parameters[1])
 		|| (	isset($parameters[1]) && !in_array($parameters[1], $searchCategory ))
 	){
+		$metadescription="Type de recherche possible";
 		$requete = array(
 			"<a class=\"gallery-item\" href=\"".WEBROOT.$controller."/series"."\">SERIES</a>",
 			"<a	class=\"gallery-item\" href=\"".WEBROOT.$controller."/editeurs"."\">EDITEURS</a>",
@@ -23,6 +24,7 @@
 		$url1= "<a class=\"myNavLink\" href=\"".WEBROOT.$page_galleries."\">Galeries</a>";
 		// $searchCategory = series
 		if($parameters[1]=='series'){
+			$metadescription="Figurines et autres objets Tintin classés par séries";
 			$requete = array();
 			foreach ($serie_list as $serie) {
 				if(!empty($serie['ediimg'])){
@@ -39,6 +41,7 @@
 		}
 		// $searchCategory = editeurs
 		if($parameters[1]=='editeurs'){
+			$metadescription="Figurines et autres objets Tintin classés par éditeurs";
 			$requete = array();
 			foreach ($editeur_list as $editeur) {
 				if(empty($editeur['ediimg'])==true){
@@ -61,6 +64,7 @@
 		}
 		// $searchCategory = types
 		if($parameters[1]=='types' && empty($parameters[2])==true){
+			$metadescription="Figurines et autres objets Tintin classés par types d'objets";
 			$requete = array();
 			foreach ($type_list as $type) {
 				$value = "<a
@@ -76,6 +80,7 @@
 
 		// $searchCategory = personnages
 		if($parameters[1]=='personnages'){
+			$metadescription="Figurines et autres objets Tintin classés par personnages";
 			$requete = array();
 			foreach ($personnage_list as $personnage) {
 				$personnage['persalias']=strtoupper($personnage['persalias']);
