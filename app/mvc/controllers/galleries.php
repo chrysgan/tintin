@@ -178,23 +178,27 @@
 		}
 		/* mise en forme entete */
 		if($parameters[1]=='series'){
+			$metadescription="Liste des Figurines Tintin de la série : ".$value['sernom'];
 			$area_img =DIR_EDITORS_IMAGES.$value['ediimg'];
 			$area_1 = $value['edidesc'];
 			$area_2 = str_replace(array("\r\n","\n"),'<br />',$value['serdesc']);
 			$url3= "<a class=\"myNavLink\" href=\"#\">". $value['sernom']." </a>";
 		}
 		if($parameters[1]=='editeurs'){
+			$metadescription="Liste des Figurines Tintin de l'éditeur : ".$value['edinom'];
 			$area_img =DIR_EDITORS_IMAGES.$value['ediimg'];
 			$area_1 = str_replace(array("\r\n","\n"),'<br />',$value['edidesc']);
 			$url3= "<a class=\"myNavLink\" href=\"#\">". $value['edinom']." </a>";
 		}
 		if($parameters[1]=='personnages'){
+			$metadescription="Liste des Figurines Tintin représentant : ".$value['persalias'];
 			$area_img =DIR_PERS_IMAGES.$value['persimg'];
 			$area_1 = $value['persalias'];
 			$area_2 = str_replace(array("\r\n","\n"),'<br />',$value['persdesc']);
 			$url3= "<a class=\"myNavLink\" href=\"#\">". $value['persalias']." </a>";
 		}
 		if($parameters[1]=='types'){
+			$metadescription="Liste des objets Tintin de type : ".$value['typelib'];
 			$url3= "<a class=\"myNavLink\" href=\"#\">". $value['typelib']." </a>";
 		}
 
