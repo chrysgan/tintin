@@ -146,6 +146,8 @@ ob_start();
                     <?php  }?>
                     <?php if (Auth::getStatus()== 3) { ?>
                         <a title="Ajouter des informations à cet objet" class="info-obj" href="<?php echo WEBROOT.'add_information/'.$objid; ?>"><span><i class="material-icons">add_circle</i></span></a>
+                    <?php  } else {?>
+                        <a title="Ajouter des informations à cet objet" class="info-obj obj" href="#"><span><i class="material-icons">add_circle</i></span></a>
                     <?php  }?>
                     <?php if(!empty($serie_link) && isset($parameters[1]) && $parameters[1]<>'series'){ ?>
                         <a title="Voir la série complète" class="info-obj" href="<?php echo $serie_link; ?>"><span><i class="material-icons">collections</i></span></a>

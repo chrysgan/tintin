@@ -32,6 +32,7 @@ ob_start();
 	</div>
 </div>
 <script src="<?php echo DIR_JS; ?>lightbox.js" type="module" defer></script>
+<script src="<?php echo DIR_JS; ?>add_information.js" type="module" defer></script>
 <?php
 $content = ob_get_clean();
 
