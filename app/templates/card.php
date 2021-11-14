@@ -24,8 +24,8 @@ else{ $objdesc="";}
 /* passage du nom de la serie en nom de l'objet quand recherche pesonnage */
 if($parameters[1]=='personnages'){$objnom = ucwords(mb_strtolower($value['edinom']));} else {$objnom=$value['objnom'];}
 if(mb_strlen($objnom)>34){
-    $objnom = ucwords(mb_strtolower(mb_substr($objnom,0,34).'...'));
     $objtitle = $objnom;
+    $objnom = ucwords(mb_strtolower(mb_substr($objnom,0,34).'...'));
 }
 else { $objtitle = '';}
 
@@ -123,12 +123,12 @@ ob_start();
         <p>
             <span>Prix : <?php echo $objprix; ?></span>
             <?php if (Auth::getStatus()== 3 && $_SESSION['auth']['type']==sha1('ADMIN')) { ?>
-                 <span class="span-right"><?php echo $objrangement.'-'.$objpossede; ?></span>
+                 <span class="span-right bgc-possession"><?php echo $objrangement; ?></span>
             <?php } ?>
         </p>
         <p>
             <span>Ref : <?php echo $objref; ?></span>
-            <span class="span-right">Parution : <?php echo $objmois.$objannee; ?></span>
+            <span class="span-right">Parution : <?php echo $objmois.' '.$objannee; ?></span>
         </p>
         <hr>
         <div class="bandeau-bas">
