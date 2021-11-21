@@ -16,6 +16,7 @@ $tmpl_main = 'main_template.php';
 $tmpl_return_admin = 'return_admin.php';
 $tmpl_object_edition = 'object_edition.php';
 $tmpl_object_list = 'object_list.php';
+$metadescription='';
 
 //Variables affichage des pages
 $website_title = 'Les Figurines de Tintin';

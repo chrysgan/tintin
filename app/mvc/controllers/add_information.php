@@ -11,7 +11,6 @@ if(Auth::getStatus()!=3) {
 }
 
 $affichage = 1;
-$metadescription ='';
 // echo $_FILES['files']['name'][0];
 // echo $_FILES['files']['tmp_name'][0];
 require_once DIR_MODELS.$controller.'.php';
