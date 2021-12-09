@@ -24,6 +24,7 @@
 		$url1= "<a class=\"myNavLink\" href=\"".WEBROOT.$page_galleries."\">Galeries</a>";
 		// $searchCategory = series
 		if($parameters[1]=='series'){
+			$title_addin = ' - Séries';
 			$metadescription="Figurines et autres objets Tintin classés par séries";
 			$requete = array();
 			foreach ($serie_list as $serie) {
@@ -41,6 +42,7 @@
 		}
 		// $searchCategory = editeurs
 		if($parameters[1]=='editeurs'){
+			$title_addin = ' - Editeurs';
 			$metadescription="Figurines et autres objets Tintin classés par éditeurs";
 			$requete = array();
 			foreach ($editeur_list as $editeur) {
@@ -64,6 +66,7 @@
 		}
 		// $searchCategory = types
 		if($parameters[1]=='types' && empty($parameters[2])==true){
+			$title_addin = ' - Objets';
 			$metadescription="Figurines et autres objets Tintin classés par types d'objets";
 			$requete = array();
 			foreach ($type_list as $type) {
@@ -80,6 +83,7 @@
 
 		// $searchCategory = personnages
 		if($parameters[1]=='personnages'){
+			$title_addin = ' - Personnages';
 			$metadescription="Figurines et autres objets Tintin classés par personnages";
 			$requete = array();
 			foreach ($personnage_list as $personnage) {
@@ -178,6 +182,7 @@
 		}
 		/* mise en forme entete */
 		if($parameters[1]=='series'){
+			$title_addin .= ' - '.$value['sernom'];
 			$metadescription="Figurines Tintin de la série : ".$value['sernom'];
 			$area_img =DIR_EDITORS_IMAGES.$value['ediimg'];
 			$area_1 = $value['edidesc'];
@@ -185,12 +190,14 @@
 			$url3= "<a class=\"myNavLink\" href=\"#\">". $value['sernom']." </a>";
 		}
 		if($parameters[1]=='editeurs'){
+			$title_addin .= ' - '.$value['edinom'];
 			$metadescription="Figurines Tintin de l'éditeur : ".$value['edinom'];
 			$area_img =DIR_EDITORS_IMAGES.$value['ediimg'];
 			$area_1 = str_replace(array("\r\n","\n"),'<br />',$value['edidesc']);
 			$url3= "<a class=\"myNavLink\" href=\"#\">". $value['edinom']." </a>";
 		}
 		if($parameters[1]=='personnages'){
+			$title_addin .= ' - '.$value['persalias'];
 			$metadescription="Figurines Tintin représentant : ".$value['persalias'];
 			$area_img =DIR_PERS_IMAGES.$value['persimg'];
 			$area_1 = $value['persalias'];
@@ -198,6 +205,7 @@
 			$url3= "<a class=\"myNavLink\" href=\"#\">". $value['persalias']." </a>";
 		}
 		if($parameters[1]=='types'){
+			$title_addin .= ' - '.$value['typelib'];
 			$metadescription="Objets Tintin de type : ".$value['typelib'];
 			$url3= "<a class=\"myNavLink\" href=\"#\">". $value['typelib']." </a>";
 		}
