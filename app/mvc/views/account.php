@@ -1,12 +1,12 @@
 <?php
-
+use App\Auth as Auth;
 ob_start();
 
 $css_loading = "<link href=\"".DIR_CSS."admin.css\" rel=\"stylesheet\">";
 // affichage :
-// 1 : formulaire création de compte
-// 2 : formulaire compte modification de compte
-// 3 :
+// 1 : formulaire création/modification de compte
+// 2 :
+// 3 : formulaire mot de passe oublié
 // 4 : affichage modification ou validation prise en compte
 
 ?>
@@ -37,6 +37,10 @@ $css_loading = "<link href=\"".DIR_CSS."admin.css\" rel=\"stylesheet\">";
             </label>
           </div>
           <button type="submit" name="action" value="validation"><?php echo $updateaccount; ?></button>
+		  <?php if(Auth::getStatus()==3 ){ ?>
+			  	<button type="submit" name="action" value="suppression">Supprimer le compte</button>
+		  <?php } ?>
+
       </form>
 		</div>
 	</div>
