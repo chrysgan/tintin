@@ -26,7 +26,7 @@ if(!empty($_POST)){
     $myMail->subject("Modification d'objet {$objid} par {$_SESSION['auth']['login']} ({$_SESSION['auth']['mbid']}) : {$edinom} - {$sernom} - {$objnom} ");
     $myMail->body($message);
     foreach ($_FILES['files']['name'] as $key => $value) {
-        if($_FILES['files']['size'][$key]<5000000){
+        if($_FILES['files']['size'][$key]<20000000){
             $myMail->addattachment($_FILES['files']['tmp_name'][$key],$value);
         }
     }
