@@ -79,7 +79,7 @@ body, html{
 .myRow {
 	display: flex;
 	flex-direction: row;
-	flex-basis: 100%;
+	flex-basis: 25px;
 	flex-wrap: wrap;
 }
 

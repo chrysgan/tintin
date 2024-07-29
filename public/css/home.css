@@ -1,6 +1,6 @@
 .home {
     display: block;
-    background-image: url(/public/images/elements/couv.jpg);
+    background-image: url(/public/images/elements/background.jpg);
 	background-repeat: repeat;
     height: 93.9vh;
 }

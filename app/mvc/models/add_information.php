@@ -6,10 +6,10 @@ $query = $pdo->prepare("
     from objets obj
     inner join editeurs edi on edi.ediid = obj.ediid
     left join series ser on ser.serid = obj.serid
-    inner join objets_images objimg on objimg.objid = obj.objid
+    left join objets_images objimg on objimg.objid = obj.objid
     where 1=1
     and obj.objid = {$parameters[1]}
-    and imgorder=1
+    order by imgorder
     ;");
 
 $query->execute();

@@ -2,6 +2,7 @@ class LightboxImage {
 
     constructor(url){
      this.url = url
+     console.log(this.url);
      this.objid = parseInt(this.url.parentElement.parentElement.getAttribute('id'))
      this.order = parseInt("1")
      this.last = parseInt(this.url.getAttribute('data-badge'))
@@ -68,6 +69,7 @@ class LightboxImage {
                 }
             }
         }
+        console.log("last :",this.last);
         if(this.last == this.order ){document.querySelector('.lightbox_next').setAttribute('hidden','')}
     }
 

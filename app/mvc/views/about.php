@@ -21,8 +21,7 @@ ob_start();
 																<p>Je commencerait par vous dire que ce site est la mise à jour de chrysgan.free.fr</p>
 																<p>Ce site dispose de fonctionnalités que l'ancien n'avait pas, sous réserve, pour certaines de créer un compte.</p>
 																<ul>
-																	<li>Le site permet d'afficher les objets par types d'objets ou bien par séries</li>
-																	<li>Vous pouvez noter les objets et voir la note globale d'un objet par les utilisateurs</li>
+																	<li>Le site permet d'afficher les objets par types d'objets, par séries, par éditeurs ou encore par personnages.</li>
 																</ul>
 																<p class="underlined">Un site participatif (sous réserve d'avoir un compte)</p>
 																<ul>

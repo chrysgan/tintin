@@ -14,13 +14,14 @@ ob_start();
                             <div class="home-bloc ">
                                 <h1 alt="">Je ne sais plus où j'en suis...</h1>
                                 <p>Dans la jungle des objets dérivés Tintin, il est difficile de s'y retrouver.</p>
-                                <p>Qui a fait quoi ? quand ? Combien existe-t-il de figurines dans cette  série ?</p>
-                                <p >Voilà les questions que je me posais quand j'ai commencé à collectionner les objets de Tintin.
-                                <p >Ici je fais l'inventaire des figurines de petites tailles en plastique ou résine et de  quelques autres objets.</p>
-                                <p >Mon idée est de fournir une synthèse des informations que j'ai collectées ici et là, avec de belles photographies.</p>
-                                <p >J'espère que le but sera atteint.</p>
+                                <p>Qui a fait quoi ? quand ? Combien existe-t-il d'objets dans cette série ?</p>
+                                <p>Vous trouverez ici des réponses à vos questions.</p>
+                                <p>Et pour étoffer le site vous pourrez participer à son évolution pour la communauté tintinophile.</p>
+                                <p>En créant un compte vous pourrez proposer la modification ou la création de nouveaux objets,</p>
+                                <p>soit par des participations photographiques ou des compléments/corrections d'informations.</p>
+                                <p>Venez participer nombreux à ce projet !</p>
                                 <a class="flex-center link_button" href="<?php echo WEBROOT.$page_galleries; ?>">Début de la visite</a>
-                                <p class="flex-center">dernier objet créé ou modifié&nbsp:&nbsp
+                                <p class="flex-center">dernier objet créé ou modifié le <?php echo date_format(new DateTime($dateCRUD),'d M Y');?>&nbsp:&nbsp
                                     <a class="strong_link" href="<?=$url?>"> <?=$libelle_objet?></a>
                                 </p>
                             </div>

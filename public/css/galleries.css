@@ -1,7 +1,8 @@
 .galleries {
-	background-image: url(/public/images/elements/couv2.jpg);
+	background-image: url(/public/images/elements/background_light.jpg);
 	background-repeat: repeat;
 	min-height: 87vh;
+	align-content: space-around;
 }
 
 .info-editor{
@@ -9,8 +10,6 @@
 	justify-content: center;
 	padding: 10px;
 	background-color: var(--thirdColor);
-	/* border-radius: 4px; */
-	/* box-shadow: 1px 1px 3px 0px var(--thirdDarkColor); */
 }
 
 .info-editor img {
@@ -24,11 +23,8 @@
 .gallery-group {
 	display: flex;
 	flex-direction: row;
-	flex-basis: 100%;
 	flex-wrap: wrap;
-	align-items: center;
-	justify-content: start;
-	padding: 10px;
+	padding: 15px;
 }
 
 .gallery-item {
@@ -43,7 +39,6 @@
 	font-family:"Sigmar One";
 	-webkit-text-stroke: 1px white;
     -webkit-text-fill-color: var(--secondaryColor);;
-
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -51,7 +46,6 @@
 	transition: all .2s ease-out;
 	align-items: cover;
 	border: solid 1px var(--thirdDarkColor);;
-	/* box-shadow: 1px 1px 3px 0px var(--thirdDarkColor); */
 	width: 220px;
 	height: 100px;
 	font-size: 1.8em;
@@ -63,44 +57,6 @@
 
 .gallery-item:hover {
 	transform: scale(1.005);
-}
-
-/* The Modal (background) */
-.ModalObjectInformation {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 10; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 10% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-}
-
-/* The Close Button */
-.modal_close_object_information {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.modal_close_object_information:hover,
-.modal_close_object_information:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
 }
 
 .gallery-item-image {

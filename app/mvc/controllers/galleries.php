@@ -9,6 +9,7 @@
 	if(	!isset($parameters[1])
 		|| (	isset($parameters[1]) && !in_array($parameters[1], $searchCategory ))
 	){
+		$metadescription="Figurines et Objets Tintin";
 		$requete = array(
 			"<a class=\"gallery-item\" href=\"".WEBROOT.$controller."/series"."\">SERIES</a>",
 			"<a	class=\"gallery-item\" href=\"".WEBROOT.$controller."/editeurs"."\">EDITEURS</a>",
@@ -23,6 +24,8 @@
 		$url1= "<a class=\"myNavLink\" href=\"".WEBROOT.$page_galleries."\">Galeries</a>";
 		// $searchCategory = series
 		if($parameters[1]=='series'){
+			$title_addin = ' - Séries';
+			$metadescription="Figurines et autres objets Tintin classés par séries";
 			$requete = array();
 			foreach ($serie_list as $serie) {
 				if(!empty($serie['ediimg'])){
@@ -39,6 +42,8 @@
 		}
 		// $searchCategory = editeurs
 		if($parameters[1]=='editeurs'){
+			$title_addin = ' - Editeurs';
+			$metadescription="Figurines et autres objets Tintin classés par éditeurs";
 			$requete = array();
 			foreach ($editeur_list as $editeur) {
 				if(empty($editeur['ediimg'])==true){
@@ -61,6 +66,8 @@
 		}
 		// $searchCategory = types
 		if($parameters[1]=='types' && empty($parameters[2])==true){
+			$title_addin = ' - Objets';
+			$metadescription="Figurines et autres objets Tintin classés par types d'objets";
 			$requete = array();
 			foreach ($type_list as $type) {
 				$value = "<a
@@ -76,6 +83,8 @@
 
 		// $searchCategory = personnages
 		if($parameters[1]=='personnages'){
+			$title_addin = ' - Personnages';
+			$metadescription="Figurines et autres objets Tintin classés par personnages";
 			$requete = array();
 			foreach ($personnage_list as $personnage) {
 				$personnage['persalias']=strtoupper($personnage['persalias']);
@@ -140,7 +149,7 @@
 		}
 		/* requete sql */
 		$query = $pdo->prepare("
-				SELECT distinct ser.*, obj.*, img.imgfile, oi2.nbimg, edi.edidesc, edi.ediimg, oi3.new, oi4.note_moyenne, edi.edinom {$select}
+				SELECT distinct ser.*, obj.*, img.imgfile, oi2.nbimg, edi.edidesc, edi.ediimg, oi3.new, edi.edinom {$select}
 				FROM objets obj
 				left join series ser on ser.serid = obj.serid
 				inner join editeurs edi on edi.ediid = obj.ediid
@@ -156,11 +165,6 @@
 					order by objdatecreation desc
 					limit 10
 					) oi3 on oi3.objid = obj.objid
-				left join (
-					select com.objid , avg(com.comnote) note_moyenne
-					from commentaires com
-					group by objid
-					) oi4 on oi4.objid = obj.objid
 				left join  objets_persos  op on obj.objid = op.objid
 				{$left}
 				where 1=1
@@ -173,31 +177,36 @@
 		$response = $query->fetchAll(PDO::FETCH_ASSOC);
 		$requete=[];
 		foreach($response as $value){
-			if($parameters[1]=='personnages'){
-				$value['objnom']=$value['sernom']??$value['edinom'];
-			}
 			require DIR_TEMPLATES.'card.php';
 			array_push($requete, $var);
 		}
 		/* mise en forme entete */
 		if($parameters[1]=='series'){
+			$title_addin .= ' - '.$value['sernom'];
+			$metadescription="Figurines Tintin de la série : ".$value['sernom'];
 			$area_img =DIR_EDITORS_IMAGES.$value['ediimg'];
 			$area_1 = $value['edidesc'];
 			$area_2 = str_replace(array("\r\n","\n"),'<br />',$value['serdesc']);
 			$url3= "<a class=\"myNavLink\" href=\"#\">". $value['sernom']." </a>";
 		}
 		if($parameters[1]=='editeurs'){
+			$title_addin .= ' - '.$value['edinom'];
+			$metadescription="Figurines Tintin de l'éditeur : ".$value['edinom'];
 			$area_img =DIR_EDITORS_IMAGES.$value['ediimg'];
 			$area_1 = str_replace(array("\r\n","\n"),'<br />',$value['edidesc']);
 			$url3= "<a class=\"myNavLink\" href=\"#\">". $value['edinom']." </a>";
 		}
 		if($parameters[1]=='personnages'){
+			$title_addin .= ' - '.$value['persalias'];
+			$metadescription="Figurines Tintin représentant : ".$value['persalias'];
 			$area_img =DIR_PERS_IMAGES.$value['persimg'];
 			$area_1 = $value['persalias'];
 			$area_2 = str_replace(array("\r\n","\n"),'<br />',$value['persdesc']);
 			$url3= "<a class=\"myNavLink\" href=\"#\">". $value['persalias']." </a>";
 		}
 		if($parameters[1]=='types'){
+			$title_addin .= ' - '.$value['typelib'];
+			$metadescription="Objets Tintin de type : ".$value['typelib'];
 			$url3= "<a class=\"myNavLink\" href=\"#\">". $value['typelib']." </a>";
 		}
 

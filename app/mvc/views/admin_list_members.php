@@ -10,14 +10,20 @@ ob_start();
 
 <div class="myRow flex-center">
     <table class="myTableTemplate admin_table">
-		<tr>
 			<?php
 				foreach ($members_list as $key) {
-					echo "<td>".$key['mbid'].'</td><td>'.$key['mbusername'].'</td><td>'.$key['mbmail'].'</td><td>'.$key['mbtype']."</td></tr>";
+					echo
+						'<tr>
+						<td>'.$key['mbid'].'</td>
+						<td>'.$key['mbusername'].'</td>
+						<td>'.$key['mbmail'].'</td>
+						<td>'.$key['mbtype'].'</td>
+						<td>'.$key['mbnews'].'</td>
+						</tr>'
+						;
 				}
 			?>
-		</tr>
-    </table>
+	</table>
 </div>
 
 <?php

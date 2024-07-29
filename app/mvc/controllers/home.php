@@ -2,14 +2,15 @@
 require_once DIR_MODELS.$controller.'.php';
 
 
-if($objet['serid']==null){
-    $urlending="/".$objet['typecode']."/".$objet['ediid'];
-}
-else{
-    $urlending = "/series/".$objet['serid'];
-}
+$urlending="/editeurs/".$objet['ediid']."#".$objet['objid'];
+
 $url =WEBROOT.$page_galleries.$urlending;
+
 $libelle_objet=$objet['objnom'];
+
+$dateCRUD = $objet['dateCRUD'];
+
+$metadescription = "Tout l'univers des figurines Tintin et autres objets.";
 
 require_once DIR_VIEWS.$controller.'.php';
 ?>

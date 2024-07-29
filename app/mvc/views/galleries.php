@@ -2,7 +2,7 @@
 
 $css_loading = "
 <link href=\"".DIR_CSS.$controller.".css\" rel=\"stylesheet\">
-<link href=\"".DIR_CSS."object.css\" rel=\"stylesheet\">
+<link href=\"".DIR_CSS."card.css\" rel=\"stylesheet\">
 <link href=\"".DIR_CSS."lightbox.css\" rel=\"stylesheet\">
 ";
 
@@ -27,22 +27,12 @@ ob_start();
 	</div>
 	<?php } ?>
 	<!-- gallerie des cards -->
-	<div class="myRow flex-center">
-		<div class="gallery-group">
-			<?php  foreach ($requete as $value) { echo $value;	};	?>
-		</div>
-	</div>
-	<!-- zone d'insertion de la modal des informations de l'objet -->
-	<div id="ModalObjectInformation" class="ModalObjectInformation">
-		<div class="modal-content">
-			<span class="modal_close_object_information">&times;</span>
-			<p id="modal-text-content"></p>
-		</div>
+	<div class="gallery-group">
+		<?php  foreach ($requete as $value) { echo $value;	};	?>
 	</div>
 </div>
 <script src="<?php echo DIR_JS; ?>lightbox.js" type="module" defer></script>
-<script src="<?php echo DIR_JS; ?>object_information.js" type="module" defer></script>
-<script src="<?php echo DIR_JS; ?>stars.js" type="module" defer></script>
+<script src="<?php echo DIR_JS; ?>add_information.js" type="module" defer></script>
 <?php
 $content = ob_get_clean();
 

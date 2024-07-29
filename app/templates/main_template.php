@@ -4,19 +4,17 @@ use App\Message;
  ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
     	<title><?php echo $website_title.$title_addin; ?> </title>
     	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="<?=$metadescription ?>">
         <link href="https://fonts.googleapis.com/css?family=Roboto&400display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Sigmar+One&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"> -->
-        <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Two+Tone" rel="stylesheet"> -->
-        <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"> -->
-        <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet"> -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Two+Tone" rel="stylesheet">
         <link href="<?php echo DIR_CSS; ?>colors.css" rel="stylesheet">
         <link href="<?php echo DIR_CSS; ?>main.css" rel="stylesheet">
         <link href="<?php echo DIR_CSS; ?>forms.css" rel="stylesheet">
@@ -36,8 +34,8 @@ use App\Message;
             <!-- Formulaire -->
             <?php if (Auth::getStatus() != 3) : ?>
             <form class="form-group" action="" method="POST">
-                <input class="form-item" type="text" placeholder="pseudo"   name="login">
-                <input class="form-item" type="password" placeholder="mot de passe"  name="pwd" >
+                <input class="form-item" type="text" placeholder="pseudo"   name="login" title="Renseignez votre pseudo" aria-label="Renseignez votre pseudo">
+                <input class="form-item" type="password" placeholder="mot de passe"  name="pwd" title="Entrez votre mot de passe" aria-label="Entrez votre mot de passe">
                 <button class ="log-item" title="Se connecter" type="submit" name="sign" value = "in"><span><i class="material-icons md-light">library_add_check</i></span></button>
                 <a class="log-item" title="Créer un compte" href="<?php echo WEBROOT.$page_account; ?>"><span ><i class="material-icons md-light">add_circle_outline</i></span></a>
                 <a class="log-item" title="Mot de passe oublié" href="<?php echo WEBROOT.$page_account.'/lostpassword'; ?>"><span ><i class="material-icons md-light">lock_open</i></span></a>
