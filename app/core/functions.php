@@ -10,7 +10,7 @@ function debug($var){
 
 function debugf($arg=false){
 	if($arg==false){
-		$T = &$GLOBALS;
+		$T = $GLOBALS;
 		unset($T[array_search($GLOBALS['_SERVER'], $T)]);
 		unset($T[array_search($GLOBALS['GLOBALS'], $T)]);
 		var_dump($T);
